@@ -1,0 +1,45 @@
+﻿@page
+@model EmployeeAppraisal.Pages.Grade.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Grade</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Grade.Id" />
+            <div class="form-group">
+                <label asp-for="Grade.GradeName" class="control-label"></label>
+                <input asp-for="Grade.GradeName" class="form-control" />
+                <span asp-validation-for="Grade.GradeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Grade.DepartmentId" class="control-label"></label>
+                <select asp-for="Grade.DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId"></select>
+                <span asp-validation-for="Grade.DepartmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Grade.Active" class="control-label"></label>
+                <input asp-for="Grade.Active" class="form-control" />
+                <span asp-validation-for="Grade.Active" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
