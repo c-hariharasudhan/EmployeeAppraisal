@@ -1,0 +1,66 @@
+﻿@page
+@model EmployeeAppraisal.Pages.Increment.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Appraisal[0].Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appraisal[0].Increment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appraisal[0].Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appraisal[0].Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appraisal[0].Grade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appraisal[0].Rating)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Appraisal) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Increment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade.GradeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating.RatingValue)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

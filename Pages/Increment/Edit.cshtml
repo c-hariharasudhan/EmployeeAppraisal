@@ -1,0 +1,60 @@
+﻿@page
+@model EmployeeAppraisal.Pages.Increment.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Appraisal</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Appraisal.Id" />
+            <div class="form-group">
+                <label asp-for="Appraisal.DepartmentId" class="control-label"></label>
+                <select asp-for="Appraisal.DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId"></select>
+                <span asp-validation-for="Appraisal.DepartmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appraisal.GradeId" class="control-label"></label>
+                <select asp-for="Appraisal.GradeId" class="form-control" asp-items="ViewBag.GradeId"></select>
+                <span asp-validation-for="Appraisal.GradeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appraisal.RatingId" class="control-label"></label>
+                <select asp-for="Appraisal.RatingId" class="form-control" asp-items="ViewBag.RatingId"></select>
+                <span asp-validation-for="Appraisal.RatingId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appraisal.Year" class="control-label"></label>
+                <input asp-for="Appraisal.Year" class="form-control" />
+                <span asp-validation-for="Appraisal.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appraisal.Increment" class="control-label"></label>
+                <input asp-for="Appraisal.Increment" class="form-control" />
+                <span asp-validation-for="Appraisal.Increment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appraisal.Active" class="control-label"></label>
+                <input asp-for="Appraisal.Active" class="form-control" />
+                <span asp-validation-for="Appraisal.Active" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
